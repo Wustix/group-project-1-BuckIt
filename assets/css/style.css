@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: url(../images/Bucketlist-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;   
+}
+#main-header {
+    max-width: 100%;
+    height: 200px;
+    background-image: url(../images/Skyline.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    z-index: 10;
+}
+.navbar {
+    z-index: 0;
+    background: rgba(192, 192, 192, 0.65); 
+    height: 100px;
+    font-size: 24px;
+    letter-spacing: 2px; 
+}
+#nav-home {
+    opacity: 1.0; 
+    color: black;
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: 2px;
+    z-index: 11;
+}
+#nav-anchors {
+    background-color: rgba(160, 160, 160, 0.75);
+    width: 40%;
+    align-content: center;
+}
+a:hover {
+    background-color: rgba(184, 184, 184, 0.8);
+}
+#input {
+    opacity: 1.0;
+}
+#card-background-1 {
+    width: 500px;
+    background: rgba(0, 0, 0, 0.5);
+}
+#card-background-2 {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+.col {
+    width: 100%
+}  
+label {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;    
+}
+#main-card {
+    max-width: 1260px;
+    margin: auto;
+    z-index: -1;
+}
+#sing-pic {
+    height: 185px; 
+    position: absolute;
+    z-index: 2;
+    top: 0%;
+    left: 0%    
+}
+#check-in-out {
+    text-align: center; 
+}
+
+#company-name,
+#user-ratings,
+#phone-num,
+#hours-op,
+#price {
+    text-align: right;
+    color: green
+}
+
+#list-input{
+    max-width: 1000px;
+}
+#list-form {
+    font-weight: 900;
+    font-size: 24px;
+    color: white;    
+}
+.activities-form-page {
+    margin: 0px 120px 0px 125px
+}
+#login-menu {
+    background: rgba(192, 192, 192, 0.9);
+    z-index: 5;
+}
+#label-user-form {
+    font-weight: 900;
+}
+#buckit-add-btn
+ {
+    font-weight: 700;
+    float: right;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.table {
+    background: white;
+}
+#thead {
+    font-weight: 900;
+    font-size: 24px;
+}
+.card {
+    width: 1200px;
+    margin-top: 50px;
+}
+#reset {
+    background: red;
+}
+td {
+    text-align: left;
+}
+#map {
+    height: 400px;
+    width: 1400px;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BuckIt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
+</head>
+
+<body>
+  <header class="container" id="main-header">
+    <div class="container" id="nav-anchors">
+      <nav class="navbar navbar-expand-lg navbar-fixed-top" id="nav-bg">
+        <a class="navbar-brand" id="nav-home" href="index.html">HOME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" id="pages">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" id="nav-home" href="activities.html">Activities
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="nav-home" href="BucketList.html">BucketList</a>
+            </li>
+            <li class="nav-item dropdown dropright">
+              <a class="nav-link dropdown-toggle" id="nav-home" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Account Login
+              </a>
+              <div class="dropdown-menu" id="login-menu">
+                <form class="px-4 py-3">
+                  <div class="form-group">
+                    <label for="userNameDropDownForm" id="label-user-form">User Name</label>
+                    <input type="text" class="form-control" id="userNameField" placeholder="user name">
+                  </div>
+                  <div class="form-group">
+                    <label for="passwordDropDownForm" id="label-user-form">Password</label>
+                    <input type="password" class="form-control" id="passwordField" placeholder="Password">
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                    <label class="form-check-label" for="dropdownCheck" id="label-user-form">
+                      Remember me
+                    </label>
+                  </div>
+                  <button type="submit" class="btn btn-primary" id="user-btn">Sign in</button>
+                </form>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">New around here? Sign up</a>
+                <a class="dropdown-item" href="#">Forgot password?</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- user inputs search for bucket list queries -->
+  <br>
+  <br>
+  <div class="activities-form-page">
+    <div class="card-1" id="card-background-2">
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="List" id="list-form">Make Your List!</label>
+            <input type="text" class="form-control" id="list-input">
+          </div>
+        </form>
+        <button type="submit" class="btn btn-primary" id="sub-btn-act">Submit</button>
+        <button type="submit" class="btn btn-primary" id="reset">Reset Form</button>
+        <br>
+        <br>
+        <div id="map"></div>
+        <container class="card-magic">
+
+        </container>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="./assets/javascript/app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0HQaRbr6NXHKenj20jrG3CoOFqBU5j5I&callback=initMap"></script>
+</body>
+
+</html>
