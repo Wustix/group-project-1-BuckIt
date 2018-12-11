@@ -107,9 +107,44 @@ $(document).ready(function () {
 
                     }
 
-                    var p = $('<div class="card"><div class="card-body"><h5 class="card-title" id="business-name">Business Name</h5><p class="card-text" id="company-name"><a href=' + url + '>' + companyName + '</a></p></div><ul class="list-group list-group-flush"><li class="list-group-item"><h5 id="business-1">User Ratings</h5><p id="user-ratings">' + userRatings + '</p></li><li class="list-group-item"><h5 id="business-2">Phone</h5><p id="phone-num">' + userPhone + '</p></li><li class="list-group-item"><h5 id="business-4">Price</h5><p id="price">' + userPrice + '</p></li></ul><div class="card-body"><button type="submit" class="btn btn-primary" id="buckit-add-btn">Add to Bucket</button></div></div>');
+                    var p = $(`
+                        <div class="card">
+                            <div id="map${i}" style="height: 400px; width: 900px" align= "center"></div>
+                            <div class="card-body">
+                                <h5 class="card-title" id="business-name">Business Name</h5>
+                                <p class="card-text" id="company-name">
+                                    <a href=${url}>${companyName}</a>
+                                </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <h5 id="business-1">User Ratings</h5>
+                                    <p id="user-ratings">${userRatings}</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <h5 id="business-2">Phone</h5>
+                                    <p id="phone-num">${userPhone}</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <h5 id="business-4">Price</h5>
+                                    <p id="price">${userPrice}</p>
+                                </li>
+                            </ul>
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary" id="buckit-add-btn">Add to Bucket</button>
+                            </div>
+                        </div>`);
 
                     $(".card-magic").append(p);
+
+                    var latitude = result.coordinates.latitude;
+                    var longitude = result.coordinates.longitude;
+                    var map = new google.maps.Map(document.getElementById(`map${i}`), {
+
+                        center: { lat: latitude, lng: longitude },
+                        zoom: 12
+                    });
+                    new google.maps.Marker({ position: { lat: latitude, lng: longitude }, map: map })
 
                 }
             };
@@ -167,19 +202,6 @@ $(document).ready(function () {
 
 
 
-
+  
 
 });
-
-var latitude = 34.0739747;
-var longitude = -118.3238054;
-var map;
-function initMap() {
-
-    map = new google.maps.Map(document.getElementById('map'), {
-
-        center: { lat: latitude, lng: longitude },
-        zoom: 12
-    });
-    var marker = new google.maps.Marker({ position: { lat: latitude, lng: longitude }, map: map })
-};
