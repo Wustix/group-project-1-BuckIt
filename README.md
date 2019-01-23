@@ -14,3 +14,7 @@ Create a list of those activities on the BucketList page to keep track of what t
 * Google Maps API
 
 ![groupproject1buckit](https://user-images.githubusercontent.com/36867791/51621954-36693580-1efb-11e9-8520-0c2d2eac0b81.png)
+
+# Github IO pages
+
+https://wustix.github.io/group-project-1-BuckIt/
