@@ -14,20 +14,6 @@ $(document).ready(function () {
     var dataBase = firebase.database();
 
 
-    //  fix the https when info provided
-
-    // var config = {
-    //     apiKey: "AIzaSyCkhtEK3pww5RWN0vP-Qc5VjvvoF2ToeNc",
-    //     authDomain: "first-group-project.firebaseapp.com",
-    //     databaseURL: "https://first-group-project.firebaseio.com",
-    //     projectId: "first-group-project",
-    //     storageBucket: "first-group-project.appspot.com",
-    //     messagingSenderId: "898303691060"
-    // };
-    // firebase.initializeApp(config);
-
-
-
     // 2. Adding Info
     $("#sub-btn-home").on("click", function (event) {
 
@@ -35,7 +21,7 @@ $(document).ready(function () {
         var startDate = $("#input-start").val().trim();
         var endDate = $("#input-end").val().trim();
         var originCityState = $("#input-origin").val().trim();
-        var originCountry = $("#originCountryInput-1");
+        var originCountry = $("#originCountryInput-1").val().trim();
         var destinationCityState = $("#input-dest").val().trim();
         var destinationCountry = $("#originCountryInput-2").val().trim();
 
