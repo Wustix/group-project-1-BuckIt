@@ -37,7 +37,7 @@ $(document).ready(function () {
         var originCityState = $("#input-origin").val().trim();
         var originCountry = $("#originCountryInput-1");
         var destinationCityState = $("#input-dest").val().trim();
-        var destinationCountry = $("#originCountryInput-2").val(.trim);
+        var destinationCountry = $("#originCountryInput-2").val().trim();
 
         console.log(startDate);
         console.log(endDate);
