@@ -46,10 +46,9 @@ $(document).ready(function () {
         console.log(destinationCityState);
         console.log(destinationCountry);
 
-        // "temporary" card data
         // push this to firebase
 
-        dateBase.ref().push({
+        dataBase.ref().push({
             startdate: startDate,
             enddate: endDate,
             origincitystate: originCityState,
