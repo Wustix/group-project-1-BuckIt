@@ -58,7 +58,7 @@ $(document).ready(function () {
         $("#input-dest").val("");
         $("#originCountryInput-2").val("");
 
-        window.location.href = "/activities";
+        window.location.href = "group-project-1-BuckIt/activities";
 
         // Prevents page from refreshing
         return false;
