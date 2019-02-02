@@ -20,27 +20,33 @@ $(document).ready(function () {
         // Grabs user input and assign to variables
         var startDate = $("#input-start").val().trim();
         var endDate = $("#input-end").val().trim();
-        var originCityState = $("#input-origin").val().trim();
+        var originCity = $("#input-origin").val().trim();
         var originCountry = $("#originCountryInput-1").val().trim();
-        var destinationCityState = $("#input-dest").val().trim();
+        var originState = $("#states-1").val();
+        var destinationCity = $("#input-dest").val().trim();
         var destinationCountry = $("#originCountryInput-2").val().trim();
+        var destinationState = $("#states-2").val();
 
         console.log(startDate);
         console.log(endDate);
-        console.log(originCityState);
+        console.log(originCity);
         console.log(originCountry);
-        console.log(destinationCityState);
+        console.log(originState);
+        console.log(destinationCity);
         console.log(destinationCountry);
+        console.log(destinationState);
 
         // push this to firebase
 
         dataBase.ref().push({
             startdate: startDate,
             enddate: endDate,
-            origincitystate: originCityState,
+            origincity: originCity,
             origincountry: originCountry,
-            destinationcitystate: destinationCityState,
-            destinationcountry: destinationCountry
+            originstate: originState,
+            destinationcity: destinationCity,
+            destinationcountry: destinationCountry,
+            destinationstate: destinationState
         });
 
 
@@ -52,6 +58,8 @@ $(document).ready(function () {
         $("#input-dest").val("");
         $("#originCountryInput-2").val("");
 
+        window.location.href = "/activities";
+
         // Prevents page from refreshing
         return false;
 
@@ -60,7 +68,8 @@ $(document).ready(function () {
 
 
     dataBase.ref().on("child_added", function (childSnapshot) {
-        var searchLocation = childSnapshot.val().destinationCity;
+        var destCity = childSnapshot.val().destinationcity;
+        var destState =childSnapshot.val().destinationstate;
 
 
         $("#sub-btn-act").on("click", function () {
@@ -75,11 +84,11 @@ $(document).ready(function () {
             // var searchLocation = childSnapshot.val().destinationCity; //may need to change based on firebase
             $('#list-input').val("");
 
-            retrieveYelpResults(searchTerm, searchLocation).then(handleYelpSearchResults);
+            retrieveYelpResults(searchTerm, destCity).then(handleYelpSearchResults);
 
-            function retrieveYelpResults(searchTerm, searchLocation) {
+            function retrieveYelpResults(searchTerm, destCity) {
 
-                var qURL = `https://api.yelp.com/v3/businesses/search?term=${encodeURIComponent(searchTerm)}&location=${encodeURIComponent(searchLocation)}&limit=8`;
+                var qURL = `https://api.yelp.com/v3/businesses/search?term=${encodeURIComponent(searchTerm)}&location=${encodeURIComponent(destCity)}&limit=8`;
 
                 var token = 'KJ_7-uskE47z1-8JIMTR6ASNgy3sh0yzqZWxjlPwTNF8NzO4h2DFrVGiIcl5lz2Jp38QGWQbfzT1fLpR_K0DeD9FgdugoL33W_AM9DfcGAOPmfI6HvtpNguty4s1W3Yx'
                 return $.ajax({
@@ -178,16 +187,16 @@ $(document).ready(function () {
 
         //google maps api
 
-        var cityDestination = "LA";
-        var stateDestination = "CA";
+        // var cityDestination = destcity;
+        // var stateDestination = deststate;
 
 
-        retrieveLocation(cityDestination, stateDestination).then(handleGoogleMapResult)
+        retrieveLocation(destCity, destState).then(handleGoogleMapResult)
 
         //}) 
         //setting up function to retrieve the location for the ajax call
-        function retrieveLocation(cityDestination, stateDestination) {
-            var queryURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityDestination)},${encodeURIComponent(stateDestination)}&key=AIzaSyA0HQaRbr6NXHKenj20jrG3CoOFqBU5j5I`;
+        function retrieveLocation(destCity, destState) {
+            var queryURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(destCity)},${encodeURIComponent(destState)}&key=AIzaSyA0HQaRbr6NXHKenj20jrG3CoOFqBU5j5I`;
             //ajax call for google maps API
             return $.ajax({
                 url: queryURL,
