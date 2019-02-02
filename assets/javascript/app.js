@@ -58,7 +58,7 @@ $(document).ready(function () {
         $("#input-dest").val("");
         $("#originCountryInput-2").val("");
 
-        window.location.href = "/activities";
+        window.location.href = "group-project-1-BuckIt/activities";
 
         // Prevents page from refreshing
         return false;
@@ -67,7 +67,7 @@ $(document).ready(function () {
     });
 
 
-    dataBase.ref().on("child_added", function (childSnapshot) {
+    dataBase.ref().orderByChild("dateAdded").limitToLast(1).once("child_added", function (childSnapshot) {
         var destCity = childSnapshot.val().destinationcity;
         var destState =childSnapshot.val().destinationstate;
 
