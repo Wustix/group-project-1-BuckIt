@@ -36,6 +36,13 @@ $(document).ready(function () {
         console.log(destinationCountry);
         console.log(destinationState);
 
+        var d = $(`
+            <div class="card" id="current-location">
+                <p>Current Search: ${destinationCity}</p>
+            </div>`);
+
+
+        $("#current-search").append(d);
         // push this to firebase
 
         dataBase.ref().push({
@@ -69,7 +76,7 @@ $(document).ready(function () {
 
     dataBase.ref().orderByChild("dateAdded").limitToLast(1).once("child_added", function (childSnapshot) {
         var destCity = childSnapshot.val().destinationcity;
-        var destState =childSnapshot.val().destinationstate;
+        var destState = childSnapshot.val().destinationstate;
 
 
         $("#sub-btn-act").on("click", function () {
@@ -119,14 +126,14 @@ $(document).ready(function () {
                     }
 
                     var p = $(`
-                        <div class="card">
-                            <div id="map${i}" style="height: 400px; width: 900px" align= "center"></div>
-                            <div class="card-body">
+                        <div class="card" id="search-cards">
+                            <div class="container-fluid" id="map${i}" style="height: 400px; width: 100%" align="center" ></div>
+                            <div class="card-body" id="top-card">
                                 <h5 class="card-title" id="business-name">Business Name</h5>
                                 <p class="card-text" id="company-name">
                                     <a href=${url}>${companyName}</a>
                                 </p>
-                            </div>
+                            
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <h5 id="business-1">User Ratings</h5>
@@ -141,12 +148,12 @@ $(document).ready(function () {
                                     <p id="price">${userPrice}</p>
                                 </li>
                             </ul>
-                            <div class="card-body">
+                            
                                 <button type="submit" class="btn btn-primary" id="buckit-add-btn">Add to Bucket</button>
                             </div>
                         </div>`);
 
-                    $(".card-magic").append(p);
+                    $("#card-magic").append(p);
 
                     var latitude = result.coordinates.latitude;
                     var longitude = result.coordinates.longitude;
@@ -186,9 +193,6 @@ $(document).ready(function () {
         });
 
         //google maps api
-
-        // var cityDestination = destcity;
-        // var stateDestination = deststate;
 
 
         retrieveLocation(destCity, destState).then(handleGoogleMapResult)

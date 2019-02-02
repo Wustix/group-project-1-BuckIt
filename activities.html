@@ -71,29 +71,24 @@
   </header>
 
   <!-- user inputs search for bucket list queries -->
-  <br>
-  <br>
+
   <div class="activities-form-page">
-    <div class="card-1" id="card-background-2">
-      <div class="card-body">
-        <form>
-          <div class="form-group">
-            <label for="List" id="list-form">Make Your List!</label>
-            <input type="text" class="form-control" id="list-input">
-          </div>
-        </form>
+    <div class="card" id="card-background-2">
+      <form>
+        <div class="form-group">
+          <label for="List" id="list-form">Make Your List!</label>
+          <input type="text" class="form-control" id="list-input">
+        </div>
+      </form>
+      <div id="current-search"></div>
+      <div>
         <button type="submit" class="btn btn-primary" id="sub-btn-act">Submit</button>
         <button type="submit" class="btn btn-primary" id="reset">Reset Form</button>
-        <br>
-        <br>
-        <div id="map"></div>
-        <container class="card-magic">
-
-        </container>
       </div>
-
+      <br>
+      <br>
+      <div class="container-fluid" id="card-magic"></div>
     </div>
-  </div>
   </div>
 
 
@@ -117,7 +112,7 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
-  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0HQaRbr6NXHKenj20jrG3CoOFqBU5j5I&callback=initMap"></script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0HQaRbr6NXHKenj20jrG3CoOFqBU5j5I"></script>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+/*----- General Styling -----*/
+
 * {
     box-sizing: border-box;
 }
@@ -8,6 +10,9 @@ body {
     background-position: center;
     background-attachment: fixed;   
 }
+
+/*----- Navbar-----*/
+
 #main-header {
     max-width: 100%;
     height: 200px;
@@ -39,37 +44,48 @@ body {
 a:hover {
     background-color: rgba(184, 184, 184, 0.8);
 }
-#input {
+
+/*-----Activities Page-----*/
+
+/* #input {
     opacity: 1.0;
-}
+} */
 #card-background-1 {
     width: 500px;
+    padding: 25px;
     background: rgba(0, 0, 0, 0.5);
 }
+
 #card-background-2 {
     background: rgba(0, 0, 0, 0.5);
+    padding: 25px 0px 25px 15px;
+    margin: auto;
+    width: 1700px;
     z-index: -1;
 }
-.col {
-    width: 100%
-}  
+
+#current-location {
+    width: 300px;
+    padding-left: 10px;
+}
+
 label {
     font-weight: bold;
     font-size: 24px;
     color: white;    
 }
-#main-card {
+/* #main-card {
     max-width: 1260px;
     margin: auto;
     z-index: -1;
-}
-#sing-pic {
+} */
+/* #sing-pic {
     height: 185px; 
     position: absolute;
     z-index: 2;
     top: 0%;
     left: 0%    
-}
+} */
 #check-in-out {
     text-align: center; 
 }
@@ -80,7 +96,8 @@ label {
 #hours-op,
 #price {
     text-align: right;
-    color: green
+    color: green;
+    margin-bottom: 0;
 }
 
 #list-input{
@@ -91,44 +108,59 @@ label {
     font-size: 24px;
     color: white;    
 }
-.activities-form-page {
-    margin: 0px 120px 0px 125px
+
+.list-group-item {
+    padding: 0;
 }
+
 #login-menu {
     background: rgba(192, 192, 192, 0.9);
     z-index: 5;
 }
+
 #label-user-form {
     font-weight: 900;
 }
-#buckit-add-btn
- {
+
+#buckit-add-btn {
+    margin-top: 25px;
     font-weight: 700;
     float: right;
 }
+
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
 }
+
 .table {
     background: white;
 }
+
 #thead {
     font-weight: 900;
     font-size: 24px;
 }
-.card {
+
+#search-cards {
     width: 1200px;
-    margin-top: 50px;
+    margin: 0 auto;
+    margin-bottom: 25px;
 }
+
+.card-body {
+    width: 1200px;
+}
+
 #reset {
     background: red;
 }
+
 td {
     text-align: left;
 }
-#map {
-    height: 400px;
-    width: 1400px;
+
+#card-magic {
+    padding-top: 50px;
 }
