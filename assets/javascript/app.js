@@ -36,13 +36,7 @@ $(document).ready(function () {
         console.log(destinationCountry);
         console.log(destinationState);
 
-        var d = $(`
-            <div class="card" id="current-location">
-                <p>Current Search: ${destinationCity}</p>
-            </div>`);
 
-
-        $("#current-search").append(d);
         // push this to firebase
 
         dataBase.ref().push({
@@ -166,6 +160,14 @@ $(document).ready(function () {
 
                 }
             };
+
+            var d = $(`
+            <div class="card" id="current-location">
+                <p>Current Search: ${destCity}</p>
+            </div>`);
+
+
+            $("#current-search").append(d);
 
             $("#reset").on("click", function () {
                 window.location.reload();
