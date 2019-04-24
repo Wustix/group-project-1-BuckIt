@@ -15,16 +15,16 @@ $(document).ready(function () {
 
 
     // 2. Adding Info
-    $("#sub-btn-home").on("click", function (event) {
+    $("#sub-btn-home").on("click", function () {
 
         // Grabs user input and assign to variables
         var startDate = $("#input-start").val().trim();
         var endDate = $("#input-end").val().trim();
         var originCity = $("#input-origin").val().trim();
-        var originCountry = $("#originCountryInput-1").val().trim();
+        var originCountry = $("#country-1").val().trim();
         var originState = $("#states-1").val();
         var destinationCity = $("#input-dest").val().trim();
-        var destinationCountry = $("#originCountryInput-2").val().trim();
+        var destinationCountry = $("#country-2").val().trim();
         var destinationState = $("#states-2").val();
 
         console.log(startDate);
@@ -55,11 +55,11 @@ $(document).ready(function () {
         $("#input-start").val("");
         $("#input-end").val("");
         $("#input-origin").val("");
-        $("#originCountryInput-1").val("");
+        $("#country-1").val("");
         $("#input-dest").val("");
-        $("#originCountryInput-2").val("");
+        $("#country-2").val("");
 
-        window.location.href = "activities";
+        window.location.href = "activities.html";
 
         // Prevents page from refreshing
         return false;
@@ -72,6 +72,13 @@ $(document).ready(function () {
         var destCity = childSnapshot.val().destinationcity;
         var destState = childSnapshot.val().destinationstate;
 
+        var d = $(`
+            <div class="card" id="current-location">
+                <p>Current Search: ${destCity}</p>
+            </div>`);
+
+
+        $("#current-search").append(d);
 
         $("#sub-btn-act").on("click", function () {
             jQuery.ajaxPrefilter(function (options) {
@@ -161,13 +168,7 @@ $(document).ready(function () {
                 }
             };
 
-            var d = $(`
-            <div class="card" id="current-location">
-                <p>Current Search: ${destCity}</p>
-            </div>`);
 
-
-            $("#current-search").append(d);
 
             $("#reset").on("click", function () {
                 window.location.reload();
@@ -202,7 +203,7 @@ $(document).ready(function () {
         //}) 
         //setting up function to retrieve the location for the ajax call
         function retrieveLocation(destCity, destState) {
-            var queryURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(destCity)},${encodeURIComponent(destState)}&key=AIzaSyA0HQaRbr6NXHKenj20jrG3CoOFqBU5j5I`;
+            var queryURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(destCity)},${encodeURIComponent(destState)}&key=AIzaSyDjlhmNSv71qlzqMba40MFxgoTcxXSHfI0`;
             //ajax call for google maps API
             return $.ajax({
                 url: queryURL,
