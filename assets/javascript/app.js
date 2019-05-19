@@ -72,6 +72,7 @@ $(document).ready(function () {
         var destCity = childSnapshot.val().destinationcity;
         var destState = childSnapshot.val().destinationstate;
 
+
         var d = $(`
             <div class="card" id="current-location">
                 <p>Current Search: ${destCity}</p>
@@ -123,7 +124,6 @@ $(document).ready(function () {
                         var userPrice = result.price;
                         var url = result.url;
 
-
                     }
 
                     var p = $(`
@@ -165,35 +165,40 @@ $(document).ready(function () {
                     });
                     new google.maps.Marker({ position: { lat: latitude, lng: longitude }, map: map })
 
+
+
                 }
+
+                $(".btn-primary").on("click", function () {
+                    $(".card-text").each(function () {
+
+                        // alert()
+                        var add = $(`
+                        <div class="card" id="name-add">
+                            <p>Current Search: ${companyName}</p>
+                        </div>`);
+                        console.log(companyName)
+                        $("#current-search").append(add);
+                    })
+
+
+
+
+                    // $("tbody").append('<tr><td><id="checkbox-list"><input type="checkbox" name="myCheckbox" id="check-list">' + companyName + "</td>");
+                    // window.location.href = "BucketList.html";
+                });
             };
-
-
 
             $("#reset").on("click", function () {
                 window.location.reload();
             });
 
-        });
-
-        $("#sub-btn-act-1").on("click", function () {
-            event.preventDefault();
-            var newInfo = $("#list-input-1").val().trim();
-            console.log(newInfo);
-
-            $("#list-input-1").val("");
-
-            $("tbody").append('<tr><td><id="checkbox-list"><input type="checkbox" name="myCheckbox" id="check-list">' + newInfo + "</td>");
-
-            $('#checkbox-list').change(function () {
-
-                if (this.checked) {
-                    $(this).closest('tr').find('td>span').css("text-decoration", "line-through");
-                };
-
-            })
 
         });
+
+
+
+
 
         //google maps api
 
@@ -216,10 +221,32 @@ $(document).ready(function () {
         }
 
 
+
     });
 
 
 
+    $("#sub-btn-act-1").on("click", function () {
+        event.preventDefault();
+        var newInfo = $("#list-input-1").val().trim();
+        console.log(newInfo);
 
+        $("#list-input-1").val("");
+
+        $("tbody").append('<tr><td><id="checkbox-list"><input type="checkbox" name="myCheckbox" id="check-list">' + newInfo + "</td>");
+
+        $('#checkbox-list').change(function () {
+
+            if (this.checked) {
+                $(this).closest('tr').find('td>span').css("text-decoration", "line-through");
+            };
+
+        })
+
+    });
 
 });
+
+function newFunction() {
+    event.preventDefault();
+}
